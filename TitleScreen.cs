@@ -59,5 +59,15 @@ namespace Blackjack
             // AnsiConsole.Markup("[black on green]                                              _|                                     \n[/]");
             // AnsiConsole.Markup("[black on green]                                                                                     \n[/]");
         }
+
+        public static string TitleMenu()
+        {
+            string optionsTitle = "Would you like to [green]play[/]?";
+            string[] titleOptions = {
+                            "Play", "Exit"
+                        };
+            return UserMenu.Menu(optionsTitle, titleOptions.Length, titleOptions);
+
+        }
     }
 }
