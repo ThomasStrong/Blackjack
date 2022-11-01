@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Spectre.Console;
 
 namespace Blackjack
 {
@@ -10,7 +11,7 @@ namespace Blackjack
     {
         public static void Test()
         {
-            Console.WriteLine("This is the Title Screen!");
+            AnsiConsole.Markup("This is the Title Screen!");
         }
     }
 }
