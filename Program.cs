@@ -6,7 +6,16 @@ namespace Blackjack
     {
         static void Main(string[] args)
         {
-            TitleScreen.Test();
+            Console.Title = "   Blackjack   ";
+
+            LoopExit exit = new();
+            exit.ToExit = false;
+
+            while (!exit.ToExit)
+            {
+                TitleScreen.Title();
+            }
+
 
             //1)	Run File
             //  Title Screen: Blackjack!  Play / Exit

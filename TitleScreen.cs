@@ -9,7 +9,7 @@ namespace Blackjack
 {
     class TitleScreen
     {
-        public static void Test()
+        public static void Title()
         {
             AnsiConsole.Markup("[bold black on green]                                                                                                       \n[/]");
             AnsiConsole.Markup("[bold black on green]                                                                                                       \n[/]");
