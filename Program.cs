@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+
 
 namespace Blackjack
 {
@@ -11,6 +13,9 @@ namespace Blackjack
             LoopExit exit = new();
             exit.ToExit = false;
 
+            string initiateDeckUrl = "https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6";
+
+
             while (!exit.ToExit)
             {
                 TitleScreen.Title();
@@ -21,6 +26,21 @@ namespace Blackjack
                 {
                     exit.ToExit = true;
                 }
+
+                Console.Clear();
+
+                // drawing a card from the deck that is initialized 
+                string newCard = APICall.ReturnWebRequest(APICall.BuildURL(APICall.InitializeDeck()));
+                dynamic cardJSON = JsonConvert.DeserializeObject(newCard);
+
+                if (cardJSON.success == "true")
+                {
+                    // This works and is test for getting the deck ID
+                    // Console.WriteLine($"The API Call was successfull and the deck is: {cardJSON.deck_id}");
+                    Console.WriteLine($"The info for the card: {cardJSON.cards[0].value}");
+                    Console.ReadLine();
+                }
+
 
                 // init deck (api call) https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6 , read string deck_id and set variable to use for card draws
                 // init hands by constructing the first 2 cards https://www.deckofcardsapi.com/api/deck/<<deck_id>>/draw/?count=1
