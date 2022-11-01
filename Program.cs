@@ -14,6 +14,13 @@ namespace Blackjack
             while (!exit.ToExit)
             {
                 TitleScreen.Title();
+                
+                // At this time this serves to keep title from infinite loop
+                string line = Console.ReadLine().ToLower();
+                if (line == "exit")
+                {
+                    exit.ToExit = true;
+                }
             }
 
 
