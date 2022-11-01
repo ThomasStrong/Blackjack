@@ -1,8 +1,8 @@
-# Geometry_Calculator
+# Blackjack
 
 ## Description
 
-Console program for calculating certain geometric equations.
+Console Blackjack/21 card game.
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ Console program for calculating certain geometric equations.
 
 ## Overview
 
-Geometry Calculator - This app is designed to find the area, perimeter, etc. for polygons of differing numbers of sides.
+Blackjack
 
   <br></br>
 
@@ -26,9 +26,7 @@ Geometry Calculator - This app is designed to find the area, perimeter, etc. for
     * **Note: In Visual Studio, you can select: Open > 'Open a Project or Solution'; 
               Or navigate to the file in your file explorer, right-click and choose 'Open in Visual Studio'.
 - Run Debug to begin the appliciation.
-    
-        
-    
+       
 
 ## Technologies
 
@@ -41,11 +39,6 @@ Geometry Calculator - This app is designed to find the area, perimeter, etc. for
 
 ## Future Development
 
-- Add calc of internal angles for equiangulars
-- ~~Figure out higher math for more area calculations involving square roots, etc.~~
-- ~~Separate the concerns~~
-- ~~Have app loop through~~
-- ~~Fix exit conditions~~
   <br></br>
 
 ## Questions?
@@ -55,4 +48,4 @@ If you have any questions or concerns feel free to reach out to me at [Github](h
 
 ## Contributions
 
-Contributions are not necessary as this is for personal practice.  Any advice, insight, or proffered information is always welcome!
+Contributions are not necessary as this is a personal project.  Any advice, insight, or proffered information is always welcome!
