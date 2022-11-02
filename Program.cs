@@ -30,9 +30,11 @@ namespace Blackjack
 
                 if (!exit.ToExit)
                 {
+                    dealerHand.AddToHand(new DealerHiddenCard("X"));
                     playerHand.AddToHand(APICall.DrawCard());
                     dealerHand.AddToHand(APICall.DrawCard());
                     playerHand.AddToHand(APICall.DrawCard());
+                    
 
                     playerHand.GetHandTotal(playerHand);
                     dealerHand.GetHandTotal(dealerHand);
@@ -99,7 +101,9 @@ namespace Blackjack
                 int dealerStay = 17;
                 LoopExit dealerExit = new();
                 dealerExit.ToExit = false;
+
                 //Give dealer second card
+                dealerHand.Cards.RemoveAt(0);
                 dealerHand.AddToHand(APICall.DrawCard());
                 dealerHand.GetHandTotal(dealerHand);
 
