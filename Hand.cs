@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Blackjack
 {
-    class Hand
+    public class Hand
     {
         public int HandTotal = 0;
 
@@ -26,12 +26,12 @@ namespace Blackjack
             Cards.Add(card);            
         }
         
-        public int GetHandTotal()
+        public int GetHandTotal(Hand hand)
         {
             int handTotal = 0;
             foreach (Card card in Cards)
             {
-                int convertedValue = Card.CardEvaluator(card.Value);
+                int convertedValue = Card.CardEvaluator(card.Value, hand);
                 handTotal += convertedValue;
             }
             HandTotal = handTotal;

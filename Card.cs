@@ -17,7 +17,7 @@ namespace Blackjack
             Value = value;
         }
 
-        public static int CardEvaluator(string value)
+        public static int CardEvaluator(string value, Hand hand)
         {
 
             return value.ToLower() switch
@@ -34,9 +34,21 @@ namespace Blackjack
                 "jack" => 10,
                 "queen" => 10,
                 "king" => 10,
-                "ace" => 11,
+                "ace" => AceEvaluator(hand),
                 _ => 0,
             };
+        }
+
+        public static int AceEvaluator(Hand hand)
+        {
+            if (hand.HandTotal >= 11)
+            {
+                return 1;
+            }
+            else
+            {
+                return 11;
+            }
         }
     }
 }

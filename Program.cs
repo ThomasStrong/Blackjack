@@ -34,8 +34,8 @@ namespace Blackjack
                     dealerHand.AddToHand(APICall.DrawCard());
                     playerHand.AddToHand(APICall.DrawCard());
 
-                    playerHand.GetHandTotal();
-                    dealerHand.GetHandTotal();
+                    playerHand.GetHandTotal(playerHand);
+                    dealerHand.GetHandTotal(dealerHand);
 
 
                     DisplayTable.DisplayGameTable(playerHand, dealerHand);
@@ -69,7 +69,7 @@ namespace Blackjack
                             {
                                 case "hit":
                                     playerHand.AddToHand(APICall.DrawCard());
-                                    playerHand.GetHandTotal();
+                                    playerHand.GetHandTotal(playerHand);
                                     break;
                                 case "stay":
                                     // This is not working atm
@@ -101,7 +101,7 @@ namespace Blackjack
                 dealerExit.ToExit = false;
                 //Give dealer second card
                 dealerHand.AddToHand(APICall.DrawCard());
-                dealerHand.GetHandTotal();
+                dealerHand.GetHandTotal(dealerHand);
 
                 if (playerHand.HandTotal > 21 || playerHand.HandTotal > 21)
                 {
@@ -119,7 +119,7 @@ namespace Blackjack
                         if (dealerHand.HandTotal <= dealerHit)
                         {
                             dealerHand.AddToHand(APICall.DrawCard());
-                            dealerHand.GetHandTotal();
+                            dealerHand.GetHandTotal(dealerHand);
                         }
                         else if (dealerHand.HandTotal >= dealerStay)
                         {
