@@ -46,13 +46,18 @@ namespace Blackjack
                 //Player Turn Loop
                 LoopExit stay = new();
                 stay.ToExit = false;
+                if (playerHand.HandTotal == 21)
+                {
+                    AnsiConsole.Markup("[green]Blackjack! You win!!![/]\n");
+                    stay.ToExit = true;
+                }
                 while (playerHand.HandTotal <= 21 && !stay.ToExit)
                 {
                     while (!stay.ToExit)
                     {
                         if (playerHand.HandTotal == 21)
                         {
-                            AnsiConsole.Markup("[green]BLACKJACK! You win![/]\n");                            
+                            AnsiConsole.Markup("[green]21![/] Let's see what the dealer does...\n");                            
                             AnsiConsole.Markup($"Press Enter to begin again.");
                             stay.ToExit = true;
                             Console.ReadLine();
