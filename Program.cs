@@ -14,7 +14,6 @@ namespace Blackjack
             LoopExit exit = new();
             exit.ToExit = false;
 
-
             while (!exit.ToExit)
             {
                 Console.Clear();
@@ -54,7 +53,6 @@ namespace Blackjack
                         {
                             AnsiConsole.Markup("[green]BLACKJACK! You win![/]\n");
                             stay.ToExit = true;
-                            Thread.Sleep(1500);
                             AnsiConsole.Markup($"Press Enter to begin again.");
                             Console.ReadLine();
                         }
@@ -62,7 +60,6 @@ namespace Blackjack
                         {
                             AnsiConsole.Markup("[red]Bust! You lose.[/]\n");
                             stay.ToExit = true;
-                            Thread.Sleep(1500);
                             AnsiConsole.Markup($"Press Enter to begin again.");
                             Console.ReadLine();
                         }
@@ -152,21 +149,18 @@ namespace Blackjack
                     if (playerHand.HandTotal > dealerHand.HandTotal)
                     {
                         AnsiConsole.Markup($"[green]You Win!![/]\n");
-                        Thread.Sleep(1000);
                         AnsiConsole.Markup($"Press Enter to begin again.");
                         Console.ReadLine();
                     }
                     else if (dealerHand.HandTotal > playerHand.HandTotal)
                     {
                         AnsiConsole.Markup($"[red]You Lose...[/]\n");
-                        Thread.Sleep(1000);
                         AnsiConsole.Markup($"Press Enter to begin again.");
                         Console.ReadLine();
                     }
                     else
                     {
                         AnsiConsole.Markup($"TIE\n");
-                        Thread.Sleep(1000);
                         AnsiConsole.Markup($"Press Enter to begin again.");
                         Console.ReadLine();
                     }
@@ -174,13 +168,11 @@ namespace Blackjack
                 else if (dealerHand.HandTotal == 21)
                 {
                     AnsiConsole.Markup($"[red]You Lose...[/]\n");
-                    Thread.Sleep(1000);
                     AnsiConsole.Markup($"Press Enter to begin again.");
                     Console.ReadLine();
                 }
                 else if (dealerHand.HandTotal > 21)
                 {
-                    Thread.Sleep(200);
                     AnsiConsole.Markup($"Press Enter to begin again.");
                     Console.ReadLine();
                 }
