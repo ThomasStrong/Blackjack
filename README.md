@@ -50,9 +50,9 @@ The playing card game Blackjack in C# console application.  The target framework
 
 - .NET <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt="dot Net" width="5%" />
 
-- Spectre.Console Package
+- Spectre.Console (Package)
 
-- Newtonsoft.Json
+- Newtonsoft.Json (Package)
 <br></br>
           
 
