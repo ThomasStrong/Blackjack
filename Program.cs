@@ -38,8 +38,8 @@ namespace Blackjack
                     playerHand.GetHandTotal();
                     dealerHand.GetHandTotal();
 
-                    // override this with display method dealerHiddenDisplayTable()
-                    DisplayTable.DealerHiddenDisplayTable(playerHand, dealerHand);
+
+                    DisplayTable.DisplayGameTable(playerHand, dealerHand);
                 }
 
                 //Player Turn Loop
@@ -84,9 +84,8 @@ namespace Blackjack
                                 default:
                                     break;
                             }
-
-                            // Display method dealerHiddenDisplayTable() in CardTable Class
-                            DisplayTable.DealerHiddenDisplayTable(playerHand, dealerHand);
+                            DisplayTable.DisplayGameTable(playerHand, dealerHand);
+                            // DisplayTable.DealerHiddenDisplayTable(playerHand, dealerHand);
                         }
                         else
                         {
@@ -114,8 +113,8 @@ namespace Blackjack
 
                 while (!dealerExit.ToExit)
                 {
-                    // Display method DisplayTable() (dealer not hidden) in CardTable Class
-                    DisplayTable.DealerVisibleDisplayTable(playerHand, dealerHand);
+
+                    DisplayTable.DisplayGameTable(playerHand, dealerHand);
                     Thread.Sleep(500);
 
                     if (dealerHand.HandTotal < 21)
