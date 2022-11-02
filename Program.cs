@@ -27,7 +27,10 @@ namespace Blackjack
 
                 Console.Clear();
 
-                APICall.DrawCard();
+                Hand playerHand = new();
+                Console.WriteLine(playerHand);
+                playerHand.AddToHand(APICall.DrawCard(), playerHand);
+                Console.WriteLine(playerHand);
 
 
                 // init deck (api call) https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6 , read string deck_id and set variable to use for card draws

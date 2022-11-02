@@ -49,7 +49,7 @@ namespace Blackjack
             return deckID;
         }
 
-        public static void DrawCard()
+        public static Card DrawCard()
         {
             // drawing a card from the deck that is initialized 
             string newCard = ReturnWebRequest(BuildURL(InitializeDeck()));
@@ -61,6 +61,16 @@ namespace Blackjack
                 // Console.WriteLine($"The API Call was successfull and the deck is: {cardJSON.deck_id}");
                 Console.WriteLine($"The info for the card: {cardJSON.cards[0].value}");
                 Console.ReadLine();
+
+                string cardValue = cardJSON.cards[0].value;
+                Card card = new Card(cardValue);
+                return card;
+
+                // 
+                // playerHand/dealerHand/Hand.AddToHand(cardJSON.cards[0]);
+            } else
+            {
+                throw new NotImplementedException();
             }
         }
     }
