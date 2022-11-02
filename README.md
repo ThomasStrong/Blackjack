@@ -18,7 +18,7 @@ Console Blackjack/21 card game.
 
 ## Overview
 
-The card playing game Blackjack in console.  This target framework for this app is .NET 5.0.  It uses Spectre.Console for rendering and Newtonsoft for JSON serialization.
+The card playing game Blackjack in C# console application.  The target framework for this app is .NET 5.0.  It uses Spectre.Console for rendering and Newtonsoft for JSON serialization.
 
   <br></br>
 
@@ -28,7 +28,7 @@ The card playing game Blackjack in console.  This target framework for this app 
 - Open the file Blackjack.sln in Visual Studio (or preferred IDE).
     * **Note: In Visual Studio, you can select: Open > 'Open a Project or Solution'; 
               Or navigate to the file in your file explorer, right-click and choose 'Open in Visual Studio'.
-- Run Debug to begin the appliciation.
+- Run Debug to begin the application.
        
 ## Features
 
