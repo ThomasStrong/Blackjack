@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using Spectre.Console;
+﻿using Spectre.Console;
 using System;
 using System.Threading;
 
