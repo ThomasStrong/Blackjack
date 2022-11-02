@@ -56,6 +56,9 @@ The card playing game Blackjack in console.  This target framework for this app 
 - Fix LoopExit exit conditions
 - Console.Beep() method for indicating win/loss?
 - Add split and/or double-down functionality
+- Implement a score (each win) or betting (monetary calculations)
+- Allow players to set their name and save their score/money
+  (1)   Subsequently saving and reading the save file for re-entrance of player (?)
 - Allow player to set Dealer rules on hit/stay
 - Implement other simple card games to the game as extras
   (1)	High card (can also be used as a chooser for ‘who-goes-first’, etc.)
