@@ -59,5 +59,15 @@ namespace Blackjack
             HandTotal = handTotal;
             return HandTotal;
         }
+
+        public static string PlayerMenu()
+        {
+            string optionsTitle = "Would you like to [green]Hit[/] / [green]Stay[/]?";
+            string[] titleOptions = {
+                            "Hit", "Stay", "Exit"
+                        };
+            return UserMenu.Menu(optionsTitle, titleOptions.Length, titleOptions);
+
+        }
     }
 }
