@@ -30,7 +30,13 @@ The card playing game Blackjack in console.  This target framework for this app 
        
 ## Features
 
-- 
+-	Implement a “master loop” console application where the user can repeatedly enter commands/perform actions, including choosing to exit the program
+    * This is accomplished in Program.cs with a while loop that runs until asked to "exit".
+-	Connect to an external/3rd party API and read data into your app (Deck of Cards API)
+    * This project calls the DeckofCards API to instantiate 6 decks (Blackjack standard) and to draw consequent cards from those decks;
+-	Create an additional class which inherits one or more properties from its parent
+    * The `DealerHiddenCard` class inherits from the `Card` class, in order to set a hidden card in the dealer's hand until the dealer's turn.
+
 
 ## Technologies
 
@@ -45,6 +51,18 @@ The card playing game Blackjack in console.  This target framework for this app 
 
 ## Future Development
 
+- Fix LoopExit exit conditions
+- Console.Beep() method for indicating win/loss?
+- Add split and/or double-down functionality
+- Allow player to set Dealer rules on hit/stay
+- Implement other simple card games to the game as extras
+  (1)	High card (can also be used as a chooser for ‘who-goes-first’, etc.)
+  (2)	War (extended high card game)
+  (3)   etc.
+- More than one player (blackjack “table”) functionality; 
+  (1)   "Choose # players" on title screen
+
+
   <br></br>
 
 ## Questions?
@@ -54,4 +72,4 @@ If you have any questions or concerns feel free to reach out to me at [Github](h
 
 ## Contributions
 
-Contributions are not necessary as this is a personal project.  Any advice, insight, or proffered information is always welcome!
+Contributions are not necessary at this time.  However, I will be open to any contributions after 11/30/22.  As always any advice, insight, or proffered information is always welcome!
