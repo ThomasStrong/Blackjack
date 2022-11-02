@@ -38,10 +38,8 @@ namespace Blackjack
                     playerHand.GetHandTotal();
                     dealerHand.GetHandTotal();
 
-                    Console.WriteLine($"Dealer: {dealerHand.Cards[0].Value}, X     Total:{dealerHand.HandTotal}");
-                    Console.WriteLine($"Player: {playerHand.Cards[0].Value}, {playerHand.Cards[1].Value}     Total:{playerHand.HandTotal}");
-                    Console.WriteLine(" ");
-                    Console.WriteLine(" ");
+                    // override this with display method dealerHiddenDisplayTable()
+                    DisplayTable.DealerHiddenDisplayTable(playerHand, dealerHand);
                 }
 
                 //Player Turn Loop
@@ -56,13 +54,17 @@ namespace Blackjack
                         {
                             AnsiConsole.Markup("[green]BLACKJACK! You win![/]\n");
                             stay.ToExit = true;
-                            Thread.Sleep(3000);
+                            Thread.Sleep(1500);
+                            AnsiConsole.Markup($"Press Enter to begin again.");
+                            Console.ReadLine();
                         }
                         else if (playerHand.HandTotal > 21)
                         {
                             AnsiConsole.Markup("[red]Bust! You lose.[/]\n");
                             stay.ToExit = true;
-                            Thread.Sleep(3000);
+                            Thread.Sleep(1500);
+                            AnsiConsole.Markup($"Press Enter to begin again.");
+                            Console.ReadLine();
                         }
                         else if (playerHand.HandTotal < 21 && !stay.ToExit)
                         {
@@ -82,23 +84,9 @@ namespace Blackjack
                                 default:
                                     break;
                             }
-                            Console.Clear();
 
-                            AnsiConsole.Markup($"Dealer: ");
-                            for (int i = 0; i < dealerHand.Cards.Count; i++)
-                            {
-                                AnsiConsole.Markup($"{dealerHand.Cards[i].Value}, ");
-                            }
-                            AnsiConsole.Markup($"X Total:{ dealerHand.HandTotal}\n");
-
-                            AnsiConsole.Markup($"Player: ");
-                            for (int i = 0; i < playerHand.Cards.Count; i++)
-                            {
-                                AnsiConsole.Markup($"{playerHand.Cards[i].Value}, ");
-                            }
-                            AnsiConsole.Markup($" Total:{ playerHand.HandTotal}\n");
-                            Console.WriteLine(" ");
-                            Console.WriteLine(" ");
+                            // Display method dealerHiddenDisplayTable() in CardTable Class
+                            DisplayTable.DealerHiddenDisplayTable(playerHand, dealerHand);
                         }
                         else
                         {
@@ -111,33 +99,23 @@ namespace Blackjack
                 }
 
                 //Dealer Turn Loop
-                int dealerStay = 16;
-                int dealerHit = 17;
+                int dealerHit = 16;
+                int dealerStay = 17;
                 LoopExit dealerExit = new();
                 dealerExit.ToExit = false;
                 //Give dealer second card
                 dealerHand.AddToHand(APICall.DrawCard());
                 dealerHand.GetHandTotal();
 
+                if (playerHand.HandTotal > 21 || playerHand.HandTotal > 21)
+                {
+                    dealerExit.ToExit = true;
+                }
+
                 while (!dealerExit.ToExit)
                 {
-                    Console.Clear();
-
-                    AnsiConsole.Markup($"Dealer: ");
-                    for (int i = 0; i < dealerHand.Cards.Count; i++)
-                    {
-                        AnsiConsole.Markup($"{dealerHand.Cards[i].Value}, ");
-                    }
-                    AnsiConsole.Markup($" Total:{ dealerHand.HandTotal}\n");
-
-                    AnsiConsole.Markup($"Player: ");
-                    for (int i = 0; i < playerHand.Cards.Count; i++)
-                    {
-                        AnsiConsole.Markup($"{playerHand.Cards[i].Value}, ");
-                    }
-                    AnsiConsole.Markup($" Total:{ playerHand.HandTotal}\n");
-                    Console.WriteLine(" ");
-                    Console.WriteLine(" ");
+                    // Display method DisplayTable() (dealer not hidden) in CardTable Class
+                    DisplayTable.DealerVisibleDisplayTable(playerHand, dealerHand);
                     Thread.Sleep(500);
 
                     if (dealerHand.HandTotal < 21)
@@ -168,25 +146,42 @@ namespace Blackjack
                         dealerExit.ToExit = true;
                     }
                 }
-
-                if (playerHand.HandTotal > dealerHand.HandTotal)
+                
+                // Win conditions if Player does not have Blackjack
+                if (playerHand.HandTotal < 21 && dealerHand.HandTotal < 21)
                 {
-                    AnsiConsole.Markup($"[green]You Win!![/]\n");
-                    Thread.Sleep(1000);
-                    AnsiConsole.Markup($"Press Enter to begin again.");
-                    Console.ReadLine();
+                    if (playerHand.HandTotal > dealerHand.HandTotal)
+                    {
+                        AnsiConsole.Markup($"[green]You Win!![/]\n");
+                        Thread.Sleep(1000);
+                        AnsiConsole.Markup($"Press Enter to begin again.");
+                        Console.ReadLine();
+                    }
+                    else if (dealerHand.HandTotal > playerHand.HandTotal)
+                    {
+                        AnsiConsole.Markup($"[red]You Lose...[/]\n");
+                        Thread.Sleep(1000);
+                        AnsiConsole.Markup($"Press Enter to begin again.");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        AnsiConsole.Markup($"TIE\n");
+                        Thread.Sleep(1000);
+                        AnsiConsole.Markup($"Press Enter to begin again.");
+                        Console.ReadLine();
+                    }
                 }
-                else if (dealerHand.HandTotal > playerHand.HandTotal)
+                else if (dealerHand.HandTotal == 21)
                 {
                     AnsiConsole.Markup($"[red]You Lose...[/]\n");
                     Thread.Sleep(1000);
                     AnsiConsole.Markup($"Press Enter to begin again.");
                     Console.ReadLine();
                 }
-                else
+                else if (dealerHand.HandTotal > 21)
                 {
-                    AnsiConsole.Markup($"TIE\n"); 
-                    Thread.Sleep(1000);
+                    Thread.Sleep(200);
                     AnsiConsole.Markup($"Press Enter to begin again.");
                     Console.ReadLine();
                 }
