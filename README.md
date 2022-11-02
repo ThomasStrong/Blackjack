@@ -1,4 +1,6 @@
 # Blackjack
+<img align="center" src="Blackjack\bjtitlescreen.png" alt="Blackjack title screen">
+<img align="center" src="Blackjack\gameplay.png" alt="Blackjack title screen">
 
 ## Description
 
