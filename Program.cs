@@ -28,12 +28,7 @@ namespace Blackjack
                 Console.Clear();
                 if (!exit.ToExit)
                 {
-                    Hand playerHand = new();
-                    Hand dealerHand = 
-                    playerHand.AddToHand(APICall.DrawCard());
-
-
-                    Console.WriteLine(playerHand.Cards[0].Value, playerHand.Cards[1].Value);
+                    InitiateHands();
                 }
 
 
@@ -81,6 +76,19 @@ namespace Blackjack
             //  Win Condition and Message
             //       - “You win!”, “Draw”, “You lost!”
 
+        }
+
+        static void InitiateHands()
+        {
+            Hand playerHand = new();
+            Hand dealerHand = new();
+            playerHand.AddToHand(APICall.DrawCard());
+            dealerHand.AddToHand(APICall.DrawCard());
+            playerHand.AddToHand(APICall.DrawCard());
+
+            Console.WriteLine($"Dealer: {dealerHand.Cards[0].Value}, X");
+            Console.WriteLine($"Player: {playerHand.Cards[0].Value}, {playerHand.Cards[1].Value}");
+            Console.ReadLine();
         }
     }
 }

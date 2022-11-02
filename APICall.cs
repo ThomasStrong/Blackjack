@@ -57,10 +57,10 @@ namespace Blackjack
 
             if (cardJSON.success == "true")
             {
-                // This works and is test for getting the deck ID
+                // This works and is test for getting the deck ID and card value
                 // Console.WriteLine($"The API Call was successfull and the deck is: {cardJSON.deck_id}");
-                Console.WriteLine($"The info for the card: {cardJSON.cards[0].value}");
-                Console.ReadLine();
+                // Console.WriteLine($"The info for the card: {cardJSON.cards[0].value}");
+                // Console.ReadLine();
 
                 string cardValue = cardJSON.cards[0].value;
                 Card card = new(cardValue);
