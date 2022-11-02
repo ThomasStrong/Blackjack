@@ -46,7 +46,7 @@ namespace Blackjack
                 //Player Turn Loop
                 LoopExit stay = new();
                 stay.ToExit = false;
-                while (playerHand.HandTotal < 21 && !stay.ToExit)
+                while (playerHand.HandTotal <= 21 && !stay.ToExit)
                 {
 
                     while (!stay.ToExit)

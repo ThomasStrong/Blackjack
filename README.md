@@ -8,6 +8,7 @@ Console Blackjack/21 card game.
 
 - [Overview](#overview)
 - [Instructions](#instructions)
+- [Features](#features)
 - [Technologies](#technologies)
 - [Future Development](#future-development)
 - [Questions](#questions)
@@ -27,6 +28,9 @@ The card playing game Blackjack in console.  This target framework for this app 
               Or navigate to the file in your file explorer, right-click and choose 'Open in Visual Studio'.
 - Run Debug to begin the appliciation.
        
+## Features
+
+- 
 
 ## Technologies
 
