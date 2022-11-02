@@ -28,39 +28,24 @@ namespace Blackjack
 
         private static int CardEvaluator(string value)
         {
-            
-            switch (value.ToLower())
+
+            return value.ToLower() switch
             {
-                case "2":
-                    return 2;
-                    
-                case "3":
-                    return 3;
-                case "4":
-                    return 4;
-                case "5":
-                    return 5;
-                case "6":
-                    return 6;
-                case "7":
-                    return 7;
-                case "8":
-                    return 8;
-                case "9":
-                    return 9;
-                case "0":
-                    return 10;
-                case "jack":
-                    return 10;
-                case "queen":
-                    return 10;
-                case "king":
-                    return 10;
-                case "ace":
-                    return 11;
-                default:
-                    return 0;
-            }
+                "2" => 2,
+                "3" => 3,
+                "4" => 4,
+                "5" => 5,
+                "6" => 6,
+                "7" => 7,
+                "8" => 8,
+                "9" => 9,
+                "0" => 10,
+                "jack" => 10,
+                "queen" => 10,
+                "king" => 10,
+                "ace" => 11,
+                _ => 0,
+            };
         }
         
         public int GetHandTotal()
