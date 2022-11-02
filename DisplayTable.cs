@@ -22,15 +22,15 @@ namespace Blackjack
             table.Width(120);
             table.Centered();
 
-            table.AddColumn("[blue]Player[/]").Centered();
-            table.AddColumn(new TableColumn("CARDS").Centered());
+            table.AddColumn("[blue]Player[/] Hand").Centered();
+            // table.AddColumn(new TableColumn("CARDS").Centered());
             table.AddColumn(new TableColumn("Total").Centered());
 
             foreach (Card card in hand.Cards)
             {
-                table.AddRow(" ", card.Value);
+                table.AddRow(card.Value, " ");
             }
-            table.AddRow(" ", " ", ($"[green]{hand.HandTotal}[/]"));
+            table.AddRow(" ", ($"[green]{hand.HandTotal}[/]"));
 
             AnsiConsole.Write(table);
         }
@@ -41,15 +41,15 @@ namespace Blackjack
             dealerTable.Width(120);
             dealerTable.Centered();
 
-            dealerTable.AddColumn("[yellow]Dealer[/]").Centered();
-            dealerTable.AddColumn(new TableColumn("CARDS").Centered());
+            dealerTable.AddColumn("[yellow]Dealer[/] Hand").Centered();
+            // dealerTable.AddColumn(new TableColumn("CARDS").Centered());
             dealerTable.AddColumn(new TableColumn("Total").Centered());
 
             foreach (Card card in hand.Cards)
             {
-                dealerTable.AddRow(" ", card.Value);
+                dealerTable.AddRow(card.Value, " ");
             }
-            dealerTable.AddRow(" ", " ", ($"[green]{hand.HandTotal}[/]"));
+            dealerTable.AddRow(" ", ($"[green]{hand.HandTotal}[/]"));
 
             AnsiConsole.Write(dealerTable);
         }

@@ -8,9 +8,7 @@ namespace Blackjack
 {
     public class Card
     {
-        //code
-        //image
-        //value
+
         public string Value { get; set; }
         public Card(string value)
         {
@@ -19,7 +17,6 @@ namespace Blackjack
 
         public static int CardEvaluator(string value, Hand hand)
         {
-
             return value.ToLower() switch
             {
                 "2" => 2,
