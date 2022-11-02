@@ -1,10 +1,12 @@
 # Blackjack
 <img align="center" src=".\bjtitlescreen.png" alt="Blackjack title screen">
 <img align="center" src=".\gameplay.png" alt="Blackjack title screen">
+<br></br>
 
 ## Description
 
 Console Blackjack/21 card game.
+<br></br>
 
 ## Table of Contents
 
@@ -15,12 +17,12 @@ Console Blackjack/21 card game.
 - [Future Development](#future-development)
 - [Questions](#questions)
 - [Contributions](#contributions)
+<br></br>
 
 ## Overview
 
 The playing card game Blackjack in C# console application.  The target framework for this app is .NET 5.0.  It uses Spectre.Console for rendering and Newtonsoft for JSON serialization.
-
-  <br></br>
+<br></br>
 
 ## Instructions
 
@@ -29,15 +31,17 @@ The playing card game Blackjack in C# console application.  The target framework
     * **Note: In Visual Studio, you can select: Open > 'Open a Project or Solution'; 
               Or navigate to the file in your file explorer, right-click and choose 'Open in Visual Studio'.
 - Run Debug to begin the application.
+<br></br>
        
 ## Features
 
--	Implement a “master loop” console application where the user can repeatedly enter commands/perform actions, including choosing to exit the program
+- Implement a “master loop” console application where the user can repeatedly enter commands/perform actions, including choosing to exit the program
     * This is accomplished in Program.cs with a while loop that runs until asked to "exit".
--	Connect to an external/3rd party API and read data into your app (Deck of Cards API)
+- Connect to an external/3rd party API and read data into your app (Deck of Cards API)
     * This project calls the DeckofCards API to instantiate 6 decks (Blackjack standard) and to draw consequent cards from those decks;
--	Create an additional class which inherits one or more properties from its parent
+- Create an additional class which inherits one or more properties from its parent
     * The `DealerHiddenCard` class inherits from the `Card` class, in order to set a hidden card in the dealer's hand until the dealer's turn.
+<br></br>
 
 
 ## Technologies
@@ -49,6 +53,7 @@ The playing card game Blackjack in C# console application.  The target framework
 - Spectre.Console Package
 
 - Newtonsoft.Json
+<br></br>
           
 
 ## Future Development
