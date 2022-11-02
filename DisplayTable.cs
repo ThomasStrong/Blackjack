@@ -7,6 +7,7 @@ namespace Blackjack
     {
         public static void DisplayGameTable(Hand playerHand, Hand dealerHand)
         {
+            
             Console.Clear();
             DrawDealer(dealerHand);
             DrawPlayer(playerHand);
@@ -15,7 +16,6 @@ namespace Blackjack
         private static void DrawPlayer(Hand hand)
         {
             var table = new Table();
-            table.Width(120);
             table.Centered();
 
             table.AddColumn("[blue]Player[/] Hand").Centered();
@@ -34,7 +34,6 @@ namespace Blackjack
         private static void DrawDealer(Hand hand)
         {
             var dealerTable = new Table();
-            dealerTable.Width(120);
             dealerTable.Centered();
 
             dealerTable.AddColumn("[yellow]Dealer[/] Hand").Centered();
