@@ -8,9 +8,11 @@ namespace Blackjack
 {
     class Hand
     {
-        public List<Card> Cards { get; set; }
+        public int HandTotal { get; set; }
+        
+        public List<Card> Cards = new();
 
-        public void AddToHand(Card card, Hand hand)
+        public void AddToHand(Card card)
         {
             // take in the card from APICall.DrawCard
 
@@ -21,7 +23,7 @@ namespace Blackjack
             //
             //          Blackjack.Hand.Cards.get returned null.
             
-            hand.Cards.Add(card);            
+            Cards.Add(card);            
         }
         
     }

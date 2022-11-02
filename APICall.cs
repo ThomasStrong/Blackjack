@@ -63,11 +63,10 @@ namespace Blackjack
                 Console.ReadLine();
 
                 string cardValue = cardJSON.cards[0].value;
-                Card card = new Card(cardValue);
+                Card card = new(cardValue);
                 return card;
 
-                // 
-                // playerHand/dealerHand/Hand.AddToHand(cardJSON.cards[0]);
+
             } else
             {
                 throw new NotImplementedException();
