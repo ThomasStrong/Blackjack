@@ -15,14 +15,14 @@ Console Blackjack/21 card game.
 
 ## Overview
 
-Blackjack
+The card playing game Blackjack in console.  This target framework for this app is .NET 5.0.  It uses Spectre.Console for rendering and Newtonsoft for JSON serialization.
 
   <br></br>
 
 ## Instructions
 
 - Clone this Repository:  Using the green 'Code' button above clone the repo to your local machine.
-- Open the file Geometry_Calculator.sln in Visual Studio (or preferred IDE).
+- Open the file Blackjack.sln in Visual Studio (or preferred IDE).
     * **Note: In Visual Studio, you can select: Open > 'Open a Project or Solution'; 
               Or navigate to the file in your file explorer, right-click and choose 'Open in Visual Studio'.
 - Run Debug to begin the appliciation.
@@ -35,6 +35,8 @@ Blackjack
 - .NET <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt="dot Net" width="5%" />
 
 - Spectre.Console Package
+
+- Newtonsoft.Json
           
 
 ## Future Development
