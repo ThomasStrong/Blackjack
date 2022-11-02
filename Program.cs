@@ -28,7 +28,20 @@ namespace Blackjack
                 Console.Clear();
                 if (!exit.ToExit)
                 {
-                    InitiateHands();
+                    Hand playerHand = new();
+                    Hand dealerHand = new();
+
+                    playerHand.AddToHand(APICall.DrawCard());
+                    dealerHand.AddToHand(APICall.DrawCard());
+                    playerHand.AddToHand(APICall.DrawCard());
+
+                    int playerTotal = playerHand.GetHandTotal();
+                    int dealerTotal = dealerHand.GetHandTotal();
+
+                    Console.WriteLine($"Dealer: {dealerHand.Cards[0].Value}, X     Total:{dealerTotal}");
+                    Console.WriteLine($"Player: {playerHand.Cards[0].Value}, {playerHand.Cards[1].Value}     Total:{playerTotal}");
+                    Console.ReadLine();
+
                 }
 
 
@@ -76,19 +89,6 @@ namespace Blackjack
             //  Win Condition and Message
             //       - “You win!”, “Draw”, “You lost!”
 
-        }
-
-        static void InitiateHands()
-        {
-            Hand playerHand = new();
-            Hand dealerHand = new();
-            playerHand.AddToHand(APICall.DrawCard());
-            dealerHand.AddToHand(APICall.DrawCard());
-            playerHand.AddToHand(APICall.DrawCard());
-
-            Console.WriteLine($"Dealer: {dealerHand.Cards[0].Value}, X");
-            Console.WriteLine($"Player: {playerHand.Cards[0].Value}, {playerHand.Cards[1].Value}");
-            Console.ReadLine();
         }
     }
 }
