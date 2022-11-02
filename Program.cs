@@ -48,14 +48,13 @@ namespace Blackjack
                 stay.ToExit = false;
                 while (playerHand.HandTotal <= 21 && !stay.ToExit)
                 {
-
                     while (!stay.ToExit)
                     {
                         if (playerHand.HandTotal == 21)
                         {
-                            AnsiConsole.Markup("[green]BLACKJACK! You win![/]\n");
-                            stay.ToExit = true;
+                            AnsiConsole.Markup("[green]BLACKJACK! You win![/]\n");                            
                             AnsiConsole.Markup($"Press Enter to begin again.");
+                            stay.ToExit = true;
                             Console.ReadLine();
                         }
                         else if (playerHand.HandTotal > 21)
@@ -89,9 +88,6 @@ namespace Blackjack
                         {
                             throw new NotImplementedException();
                         }
-
-
-
                     }
                 }
 
@@ -106,7 +102,7 @@ namespace Blackjack
                 dealerHand.AddToHand(APICall.DrawCard());
                 dealerHand.GetHandTotal(dealerHand);
 
-                if (playerHand.HandTotal > 21 || playerHand.HandTotal > 21)
+                if (playerHand.HandTotal > 21 || dealerHand.HandTotal > 21)
                 {
                     dealerExit.ToExit = true;
                 }
