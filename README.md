@@ -66,8 +66,6 @@ The playing card game Blackjack in C# console application.  The target framework
   (3)   etc.
 - More than one player (blackjack “table”) functionality; 
   (1)   "Choose # players" on title screen
-
-
   <br></br>
 
 ## Questions?
