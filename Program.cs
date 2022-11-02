@@ -35,11 +35,11 @@ namespace Blackjack
                     dealerHand.AddToHand(APICall.DrawCard());
                     playerHand.AddToHand(APICall.DrawCard());
 
-                    int playerTotal = playerHand.GetHandTotal();
-                    int dealerTotal = dealerHand.GetHandTotal();
+                    playerHand.GetHandTotal();
+                    dealerHand.GetHandTotal();
 
-                    Console.WriteLine($"Dealer: {dealerHand.Cards[0].Value}, X     Total:{dealerTotal}");
-                    Console.WriteLine($"Player: {playerHand.Cards[0].Value}, {playerHand.Cards[1].Value}     Total:{playerTotal}");
+                    Console.WriteLine($"Dealer: {dealerHand.Cards[0].Value}, X     Total:{dealerHand.HandTotal}");
+                    Console.WriteLine($"Player: {playerHand.Cards[0].Value}, {playerHand.Cards[1].Value}     Total:{playerHand.HandTotal}");
                     Console.ReadLine();
 
                 }

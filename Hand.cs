@@ -39,7 +39,7 @@ namespace Blackjack
                 "7" => 7,
                 "8" => 8,
                 "9" => 9,
-                "0" => 10,
+                "10" => 10,
                 "jack" => 10,
                 "queen" => 10,
                 "king" => 10,
@@ -56,7 +56,8 @@ namespace Blackjack
                 int convertedValue = CardEvaluator(card.Value);
                 handTotal += convertedValue;
             }
-            return handTotal;
+            HandTotal = handTotal;
+            return HandTotal;
         }
     }
 }
