@@ -49,5 +49,19 @@ namespace Blackjack
             return deckID;
         }
 
+        public static void DrawCard()
+        {
+            // drawing a card from the deck that is initialized 
+            string newCard = ReturnWebRequest(BuildURL(InitializeDeck()));
+            dynamic cardJSON = JsonConvert.DeserializeObject(newCard);
+
+            if (cardJSON.success == "true")
+            {
+                // This works and is test for getting the deck ID
+                // Console.WriteLine($"The API Call was successfull and the deck is: {cardJSON.deck_id}");
+                Console.WriteLine($"The info for the card: {cardJSON.cards[0].value}");
+                Console.ReadLine();
+            }
+        }
     }
 }
