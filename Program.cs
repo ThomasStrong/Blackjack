@@ -84,7 +84,6 @@ namespace Blackjack
                                     break;
                             }
                             DisplayTable.DisplayGameTable(playerHand, dealerHand);
-                            // DisplayTable.DealerHiddenDisplayTable(playerHand, dealerHand);
                         }
                         else
                         {
@@ -114,7 +113,6 @@ namespace Blackjack
 
                 while (!dealerExit.ToExit)
                 {
-
                     DisplayTable.DisplayGameTable(playerHand, dealerHand);
                     Thread.Sleep(500);
 
@@ -172,6 +170,12 @@ namespace Blackjack
                 else if (dealerHand.HandTotal == 21)
                 {
                     AnsiConsole.Markup($"[red]You Lose...[/]\n");
+                    AnsiConsole.Markup($"Press Enter to begin again.");
+                    Console.ReadLine();
+                }
+                else if (dealerHand.HandTotal == 21 && playerHand.HandTotal == 21)
+                {
+                    AnsiConsole.Markup($"[red]You TIE with Blackjack![/]\n");
                     AnsiConsole.Markup($"Press Enter to begin again.");
                     Console.ReadLine();
                 }
