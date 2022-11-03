@@ -95,11 +95,6 @@ namespace Blackjack
             {
                 WinLose.TieTwentyOne();
             }
-            else 
-            {
-                AnsiConsole.Markup($"Press Enter to begin again.");
-                Console.ReadLine();
-            }
         }
     }
 }
