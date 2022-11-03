@@ -59,7 +59,7 @@ The playing card game Blackjack in C# console application.  The target framework
 ## Future Development
 
 - ~~Fix LoopExit exit conditions~~
-- Console.Beep() method for indicating win/loss?
+- ~~Console.Beep() method for indicating win/loss?~~
 - Add split and/or double-down functionality
 - Implement a score (each win) or betting (monetary calculations)
 - Allow players to set their name and save their score/money
