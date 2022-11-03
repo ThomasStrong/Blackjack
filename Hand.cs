@@ -11,15 +11,6 @@ namespace Blackjack
 
         public void AddToHand(Card card)
         {
-            // take in the card from APICall.DrawCard
-
-            // Card card = new card(DrawCard());
-
-            // *** When get here:
-            // ***      System.NullReferenceException: 'Object reference not set to an instance of an object.'
-            //
-            //          Blackjack.Hand.Cards.get returned null.
-            
             Cards.Add(card);            
         }
         
@@ -47,7 +38,7 @@ namespace Blackjack
 
         public static void HitStayMenu(Hand hand, LoopExit stay, LoopExit exit)
         {
-            switch (Hand.PlayerMenu().ToLower())
+            switch (PlayerMenu().ToLower())
             {
                 case "hit":
                     hand.AddToHand(APICall.DrawCard());
@@ -63,6 +54,18 @@ namespace Blackjack
                 default:
                     break;
             }
+        }
+
+        public static void InitiateHands(Hand playerHand, Hand dealerHand)
+        {
+            dealerHand.AddToHand(new DealerHiddenCard("X"));
+            playerHand.AddToHand(APICall.DrawCard());
+            dealerHand.AddToHand(APICall.DrawCard());
+            playerHand.AddToHand(APICall.DrawCard());
+
+
+            playerHand.GetHandTotal(playerHand);
+            dealerHand.GetHandTotal(dealerHand);
         }
     }
 }

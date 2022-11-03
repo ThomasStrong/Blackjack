@@ -32,16 +32,7 @@ namespace Blackjack
                 if (!exit.ToExit)
                 {
                     Console.Clear();
-                    dealerHand.AddToHand(new DealerHiddenCard("X"));
-                    playerHand.AddToHand(APICall.DrawCard());
-                    dealerHand.AddToHand(APICall.DrawCard());
-                    playerHand.AddToHand(APICall.DrawCard());
-                    
-
-                    playerHand.GetHandTotal(playerHand);
-                    dealerHand.GetHandTotal(dealerHand);
-
-
+                    Hand.InitiateHands(playerHand,dealerHand);
                     DisplayTable.DisplayGameTable(playerHand, dealerHand);
                 }
 
