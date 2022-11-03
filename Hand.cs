@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spectre.Console;
+using System;
 using System.Collections.Generic;
 
 namespace Blackjack
@@ -63,9 +64,52 @@ namespace Blackjack
             dealerHand.AddToHand(APICall.DrawCard());
             playerHand.AddToHand(APICall.DrawCard());
 
-
             playerHand.GetHandTotal(playerHand);
             dealerHand.GetHandTotal(dealerHand);
+        }
+
+        public static void CompareHands(Hand playerHand, Hand dealerHand)
+        {
+            int win = 21;
+
+            if (playerHand.HandTotal < win && dealerHand.HandTotal < win)
+            {
+                if (playerHand.HandTotal > dealerHand.HandTotal)
+                {
+                    AnsiConsole.Markup($"[green]You Win!![/]\n");
+                    AnsiConsole.Markup($"Press Enter to begin again.");
+                    Console.ReadLine();
+                }
+                else if (dealerHand.HandTotal > playerHand.HandTotal)
+                {
+                    AnsiConsole.Markup($"[red]You Lose...[/]\n");
+                    AnsiConsole.Markup($"Press Enter to begin again.");
+                    Console.ReadLine();
+                }
+                else
+                {
+                    AnsiConsole.Markup($"TIE\n");
+                    AnsiConsole.Markup($"Press Enter to begin again.");
+                    Console.ReadLine();
+                }
+            }
+            else if (dealerHand.HandTotal == win)
+            {
+                AnsiConsole.Markup($"[red]You Lose...[/]\n");
+                AnsiConsole.Markup($"Press Enter to begin again.");
+                Console.ReadLine();
+            }
+            else if (dealerHand.HandTotal == win && playerHand.HandTotal == win)
+            {
+                AnsiConsole.Markup($"[red]You TIE with Blackjack![/]\n");
+                AnsiConsole.Markup($"Press Enter to begin again.");
+                Console.ReadLine();
+            }
+            else if (dealerHand.HandTotal > win)
+            {
+                AnsiConsole.Markup($"Press Enter to begin again.");
+                Console.ReadLine();
+            }
         }
     }
 }
