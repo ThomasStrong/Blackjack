@@ -55,6 +55,7 @@ namespace Blackjack
                         if (playerHand.HandTotal == win)
                         {
                             stay.ToExit = true;
+                            Console.Beep();
                             AnsiConsole.Markup("[green]21![/] Let's see what the dealer does...\n");                            
                             AnsiConsole.Markup($"Press Enter to begin again.");
                             Console.ReadLine();
