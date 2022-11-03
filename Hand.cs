@@ -44,5 +44,24 @@ namespace Blackjack
             return UserMenu.Menu(optionsTitle, titleOptions.Length, titleOptions);
 
         }
+
+        public static void HitStayMenu(Hand hand, LoopExit stay, LoopExit exit)
+        {
+            switch (Hand.PlayerMenu().ToLower())
+            {
+                case "hit":
+                    hand.AddToHand(APICall.DrawCard());
+                    hand.GetHandTotal(hand);
+                    break;
+                case "stay":
+                    stay.ToExit = true;
+                    break;
+                case "exit":
+                    exit.ToExit = true;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace Blackjack
     {
         static void Main(string[] args)
         {
-            Console.Title = "   Blackjack   ";
+            Console.Title = "_Blackjack";
 
             LoopExit exit = new();
             exit.ToExit = false;
@@ -19,18 +19,19 @@ namespace Blackjack
             {
                 Console.Clear();
                 TitleScreen.Title();
+
+                Hand playerHand = new();
+                Hand dealerHand = new();
+
                 string toPlay = TitleScreen.TitleMenu().ToLower();
                 if (toPlay == "exit")
                 {
                     exit.ToExit = true;
                 }
-                Console.Clear();
-
-                Hand playerHand = new();
-                Hand dealerHand = new();
 
                 if (!exit.ToExit)
                 {
+                    Console.Clear();
                     dealerHand.AddToHand(new DealerHiddenCard("X"));
                     playerHand.AddToHand(APICall.DrawCard());
                     dealerHand.AddToHand(APICall.DrawCard());
@@ -58,7 +59,7 @@ namespace Blackjack
                     {
                         if (playerHand.HandTotal == win)
                         {
-                            AnsiConsole.Markup("[green]win![/] Let's see what the dealer does...\n");                            
+                            AnsiConsole.Markup("[green]21![/] Let's see what the dealer does...\n");                            
                             AnsiConsole.Markup($"Press Enter to begin again.");
                             stay.ToExit = true;
                             Console.ReadLine();
@@ -72,22 +73,7 @@ namespace Blackjack
                         }
                         else if (playerHand.HandTotal < win && !stay.ToExit)
                         {
-                            switch (Hand.PlayerMenu().ToLower())
-                            {
-                                case "hit":
-                                    playerHand.AddToHand(APICall.DrawCard());
-                                    playerHand.GetHandTotal(playerHand);
-                                    break;
-                                case "stay":
-                                    // This is not working atm
-                                    stay.ToExit = true;
-                                    break;
-                                case "exit":
-                                    exit.ToExit = true;
-                                    break;
-                                default:
-                                    break;
-                            }
+                            Hand.HitStayMenu(playerHand, stay, exit);
                             DisplayTable.DisplayGameTable(playerHand, dealerHand);
                         }
                         else
