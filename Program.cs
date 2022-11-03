@@ -45,8 +45,8 @@ namespace Blackjack
                 }
                 if (playerHand.HandTotal == win)
                 {
-                    AnsiConsole.Markup("[green]Blackjack! You win!!![/]\n");
                     stay.ToExit = true;
+                    WinLose.PlayerHasBlackjack();
                 }
                 while (playerHand.HandTotal <= win && !stay.ToExit)
                 {
@@ -55,17 +55,12 @@ namespace Blackjack
                         if (playerHand.HandTotal == win)
                         {
                             stay.ToExit = true;
-                            Console.Beep();
-                            AnsiConsole.Markup("[green]21![/] Let's see what the dealer does...\n");                            
-                            AnsiConsole.Markup($"Press Enter to begin again.");
-                            Console.ReadLine();
+                            WinLose.PlayerHasTwentyOne();
                         }
                         else if (playerHand.HandTotal > win)
                         {
                             stay.ToExit = true;
-                            AnsiConsole.Markup("[red]Bust! You lose.[/]\n");
-                            AnsiConsole.Markup($"Press Enter to begin again.");
-                            Console.ReadLine();
+                            WinLose.PlayerBust();
                         }
                         else if (playerHand.HandTotal < win && !stay.ToExit)
                         {
@@ -119,13 +114,13 @@ namespace Blackjack
                     }
                     else if (dealerHand.HandTotal == win)
                     {
-                        AnsiConsole.Markup($"The Dealer has Blackjack!\n");
                         dealerExit.ToExit = true;
+                        WinLose.DealerHasBlackjack();
                     }
                     else
                     {
-                        AnsiConsole.Markup($"The Dealer busted!  [green]You Win!![/]\n");
                         dealerExit.ToExit = true;
+                        WinLose.DealerBust();
                     }
                 }
                 

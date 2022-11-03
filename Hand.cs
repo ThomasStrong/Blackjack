@@ -76,36 +76,26 @@ namespace Blackjack
             {
                 if (playerHand.HandTotal > dealerHand.HandTotal)
                 {
-                    AnsiConsole.Markup($"[green]You Win!![/]\n");
-                    AnsiConsole.Markup($"Press Enter to begin again.");
-                    Console.ReadLine();
+                    WinLose.PlayerWins();
                 }
                 else if (dealerHand.HandTotal > playerHand.HandTotal)
                 {
-                    AnsiConsole.Markup($"[red]You Lose...[/]\n");
-                    AnsiConsole.Markup($"Press Enter to begin again.");
-                    Console.ReadLine();
+                    WinLose.PlayerLose();
                 }
                 else
                 {
-                    AnsiConsole.Markup($"TIE\n");
-                    AnsiConsole.Markup($"Press Enter to begin again.");
-                    Console.ReadLine();
+                    WinLose.Tie();
                 }
             }
             else if (dealerHand.HandTotal == win)
             {
-                AnsiConsole.Markup($"[red]You Lose...[/]\n");
-                AnsiConsole.Markup($"Press Enter to begin again.");
-                Console.ReadLine();
+                WinLose.PlayerLose();
             }
             else if (dealerHand.HandTotal == win && playerHand.HandTotal == win)
             {
-                AnsiConsole.Markup($"[red]You TIE with Blackjack![/]\n");
-                AnsiConsole.Markup($"Press Enter to begin again.");
-                Console.ReadLine();
+                WinLose.TieTwentyOne();
             }
-            else if (dealerHand.HandTotal > win)
+            else 
             {
                 AnsiConsole.Markup($"Press Enter to begin again.");
                 Console.ReadLine();
