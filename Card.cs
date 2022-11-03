@@ -32,7 +32,7 @@ namespace Blackjack
             };
         }
 
-        public static int AceEvaluator(Hand hand)
+        private static int AceEvaluator(Hand hand)
         {
             if (hand.HandTotal >= 11)
             {
