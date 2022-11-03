@@ -57,6 +57,7 @@ namespace Blackjack
                     stay.ToExit = true;
                     break;
                 case "exit":
+                    stay.ToExit = true;
                     exit.ToExit = true;
                     break;
                 default:

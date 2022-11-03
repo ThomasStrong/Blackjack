@@ -48,6 +48,10 @@ namespace Blackjack
                 //Player Turn Loop
                 LoopExit stay = new();
                 stay.ToExit = false;
+                if (exit.ToExit)
+                {
+                    stay.ToExit = true;
+                }
                 if (playerHand.HandTotal == win)
                 {
                     AnsiConsole.Markup("[green]Blackjack! You win!!![/]\n");
@@ -89,12 +93,13 @@ namespace Blackjack
                 LoopExit dealerExit = new();
                 dealerExit.ToExit = false;
 
-                //Give dealer second card
-                dealerHand.Cards.RemoveAt(0);
-                dealerHand.AddToHand(APICall.DrawCard());
-                dealerHand.GetHandTotal(dealerHand);
+                //Give dealer second card and remove hidden
+                if (!exit.ToExit)
+                {
+                    DealerHiddenCard.ReplaceDealerHiddenCard(dealerHand);
+                }
 
-                if (playerHand.HandTotal > win || dealerHand.HandTotal > win)
+                if (playerHand.HandTotal > win || dealerHand.HandTotal > win || exit.ToExit)
                 {
                     dealerExit.ToExit = true;
                 }
@@ -134,43 +139,46 @@ namespace Blackjack
                 }
                 
                 // Win conditions if Player does not have Blackjack
-                if (playerHand.HandTotal < win && dealerHand.HandTotal < win)
+                if (!exit.ToExit)
                 {
-                    if (playerHand.HandTotal > dealerHand.HandTotal)
+                    if (playerHand.HandTotal < win && dealerHand.HandTotal < win)
                     {
-                        AnsiConsole.Markup($"[green]You Win!![/]\n");
-                        AnsiConsole.Markup($"Press Enter to begin again.");
-                        Console.ReadLine();
+                        if (playerHand.HandTotal > dealerHand.HandTotal)
+                        {
+                            AnsiConsole.Markup($"[green]You Win!![/]\n");
+                            AnsiConsole.Markup($"Press Enter to begin again.");
+                            Console.ReadLine();
+                        }
+                        else if (dealerHand.HandTotal > playerHand.HandTotal)
+                        {
+                            AnsiConsole.Markup($"[red]You Lose...[/]\n");
+                            AnsiConsole.Markup($"Press Enter to begin again.");
+                            Console.ReadLine();
+                        }
+                        else
+                        {
+                            AnsiConsole.Markup($"TIE\n");
+                            AnsiConsole.Markup($"Press Enter to begin again.");
+                            Console.ReadLine();
+                        }
                     }
-                    else if (dealerHand.HandTotal > playerHand.HandTotal)
+                    else if (dealerHand.HandTotal == win)
                     {
                         AnsiConsole.Markup($"[red]You Lose...[/]\n");
                         AnsiConsole.Markup($"Press Enter to begin again.");
                         Console.ReadLine();
                     }
-                    else
+                    else if (dealerHand.HandTotal == win && playerHand.HandTotal == win)
                     {
-                        AnsiConsole.Markup($"TIE\n");
+                        AnsiConsole.Markup($"[red]You TIE with Blackjack![/]\n");
                         AnsiConsole.Markup($"Press Enter to begin again.");
                         Console.ReadLine();
                     }
-                }
-                else if (dealerHand.HandTotal == win)
-                {
-                    AnsiConsole.Markup($"[red]You Lose...[/]\n");
-                    AnsiConsole.Markup($"Press Enter to begin again.");
-                    Console.ReadLine();
-                }
-                else if (dealerHand.HandTotal == win && playerHand.HandTotal == win)
-                {
-                    AnsiConsole.Markup($"[red]You TIE with Blackjack![/]\n");
-                    AnsiConsole.Markup($"Press Enter to begin again.");
-                    Console.ReadLine();
-                }
-                else if (dealerHand.HandTotal > win)
-                {
-                    AnsiConsole.Markup($"Press Enter to begin again.");
-                    Console.ReadLine();
+                    else if (dealerHand.HandTotal > win)
+                    {
+                        AnsiConsole.Markup($"Press Enter to begin again.");
+                        Console.ReadLine();
+                    }
                 }
             }
         }

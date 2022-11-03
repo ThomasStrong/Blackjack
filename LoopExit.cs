@@ -6,4 +6,5 @@ namespace Blackjack
     {
         public bool ToExit { get; set; }
     }
+
 }

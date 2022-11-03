@@ -8,5 +8,12 @@ namespace Blackjack
         {
            Value = value;
         }
+
+        public static void ReplaceDealerHiddenCard(Hand hand)
+        {
+            hand.Cards.RemoveAt(0);
+            hand.AddToHand(APICall.DrawCard());
+            hand.GetHandTotal(hand);
+        }
     }
 }
