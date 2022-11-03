@@ -104,11 +104,7 @@ namespace Blackjack
                         }
                         else if (dealerHand.HandTotal >= dealerStay)
                         {
-                            dealerExit.ToExit = true;
-                            AnsiConsole.Markup($"The Dealer stays with {dealerHand.HandTotal}.\n");
-                        }
-                        else
-                        {
+                            AnsiConsole.Markup($"The Dealer stays with {dealerHand.HandTotal}.\n"); 
                             dealerExit.ToExit = true;
                         }
                     }
@@ -125,7 +121,7 @@ namespace Blackjack
                 }
                 
                 // Win conditions if Player does not have Blackjack
-                if (!exit.ToExit && playerHand.HandTotal !> win)
+                if (!exit.ToExit && playerHand.HandTotal < win)
                 {
                     Hand.CompareHands(playerHand, dealerHand);
                 }

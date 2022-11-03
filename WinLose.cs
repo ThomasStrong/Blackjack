@@ -55,11 +55,14 @@ namespace Blackjack
         public static void DealerHasBlackjack()
         {
             AnsiConsole.Markup($"The Dealer has Blackjack!\n");
+            Console.ReadLine();
         }
 
         public static void DealerBust()
         {
             AnsiConsole.Markup($"The Dealer busted!  [green]You Win!![/]\n");
+            AnsiConsole.Markup($"Press Enter to begin again.");
+            Console.ReadLine();
         }
 
     }
