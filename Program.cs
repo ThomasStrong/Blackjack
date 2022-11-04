@@ -14,20 +14,33 @@ namespace Blackjack
             exit.ToExit = false;
 
             const int win = 21;
-
+            int counter = 0;
             while (!exit.ToExit)
             {
-                Console.Clear();
-                TitleScreen.Title();
 
                 Hand playerHand = new();
                 Hand dealerHand = new();
 
-                string toPlay = TitleScreen.TitleMenu().ToLower();
-                if (toPlay == "exit")
+                if (counter == 0)
                 {
-                    exit.ToExit = true;
+                    Console.Clear();
+                    TitleScreen.Title();
+                    string toPlay = TitleScreen.TitleMenu().ToLower();
+                    if (toPlay == "exit")
+                    {
+                        exit.ToExit = true;
+                    }
+                    counter++;
                 }
+                else
+                {
+                    string toPlay = TitleScreen.ReplayMenu().ToLower();
+                    if (toPlay == "exit")
+                    {
+                        exit.ToExit = true;
+                    }
+                }
+
 
                 if (!exit.ToExit)
                 {

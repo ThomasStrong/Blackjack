@@ -41,5 +41,14 @@ namespace Blackjack
             return UserMenu.Menu(optionsTitle, titleOptions.Length, titleOptions);
 
         }
+        public static string ReplayMenu()
+        {
+            string optionsTitle = "Would you like to [green]play again[/]?";
+            string[] titleOptions = {
+                            "Play", "Exit"
+                        };
+            return UserMenu.Menu(optionsTitle, titleOptions.Length, titleOptions);
+
+        }
     }
 }

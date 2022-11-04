@@ -64,13 +64,14 @@ namespace Blackjack
             dealerHand.AddToHand(APICall.DrawCard());
             playerHand.AddToHand(APICall.DrawCard());
 
-            playerHand.GetHandTotal(playerHand);
-            dealerHand.GetHandTotal(dealerHand);
+            GetHandTotal(playerHand, dealerHand);
         }
 
         public static void CompareHands(Hand playerHand, Hand dealerHand)
         {
             int win = 21;
+
+            GetHandTotal(playerHand, dealerHand);
 
             if (playerHand.HandTotal < win && dealerHand.HandTotal < win)
             {
@@ -95,6 +96,12 @@ namespace Blackjack
             {
                 WinLose.TieTwentyOne();
             }
+        }
+
+        public static void GetHandTotal(Hand playerHand, Hand dealerHand)
+        {
+            playerHand.GetHandTotal(playerHand);
+            dealerHand.GetHandTotal(dealerHand);
         }
     }
 }
