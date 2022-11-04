@@ -7,14 +7,11 @@ namespace Blackjack
     public class Hand
     {
         public int HandTotal = 0;
-
         public List<Card> Cards = new();
-
         public void AddToHand(Card card)
         {
             Cards.Add(card);            
-        }
-        
+        }        
         public int GetHandTotal(Hand hand)
         {
             int handTotal = 0;
@@ -26,7 +23,6 @@ namespace Blackjack
             HandTotal = handTotal;
             return HandTotal;
         }
-
         public static string PlayerMenu()
         {
             string optionsTitle = "Would you like to [green]Hit[/] / [green]Stay[/]?";
@@ -34,9 +30,7 @@ namespace Blackjack
                             "Hit", "Stay", "Exit"
                         };
             return UserMenu.Menu(optionsTitle, titleOptions.Length, titleOptions);
-
         }
-
         public static void HitStayMenu(Hand hand, LoopExit stay, LoopExit exit)
         {
             switch (PlayerMenu().ToLower())
@@ -56,7 +50,6 @@ namespace Blackjack
                     break;
             }
         }
-
         public static void InitiateHands(Hand playerHand, Hand dealerHand)
         {
             dealerHand.AddToHand(new DealerHiddenCard("X"));
@@ -66,7 +59,6 @@ namespace Blackjack
 
             GetHandTotal(playerHand, dealerHand);
         }
-
         public static void CompareHands(Hand playerHand, Hand dealerHand)
         {
             int win = 21;
@@ -97,7 +89,6 @@ namespace Blackjack
                 WinLose.TieTwentyOne();
             }
         }
-
         public static void GetHandTotal(Hand playerHand, Hand dealerHand)
         {
             playerHand.GetHandTotal(playerHand);

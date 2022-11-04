@@ -31,7 +31,6 @@ namespace Blackjack
             AnsiConsole.Markup("[bold black on green]                                                                                                       \n[/]");
             AnsiConsole.Markup("[bold black on green]                                                                                                       \n[/]");
         }
-
         public static string TitleMenu()
         {
             string optionsTitle = "Would you like to [green]play[/]?";

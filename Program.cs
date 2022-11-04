@@ -17,7 +17,6 @@ namespace Blackjack
             int counter = 0;
             while (!exit.ToExit)
             {
-
                 Hand playerHand = new();
                 Hand dealerHand = new();
 
